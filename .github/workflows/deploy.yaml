@@ -52,6 +52,11 @@ jobs:
             EXTRA_ARGS=("--from-ref" "$FROM_REF" "--to-ref" "$TO_REF")
           fi
 
+          if ! pre-commit run --hook-stage push "${EXTRA_ARGS[@]}"
+          then
+            echo "Please check your commit messages"
+          fi
+
           if [[ ! -z "${{ matrix.test }}" ]]
           then
             EXTRA_ARGS+=("--hook-stage" "manual" "${{ matrix.test }}")
