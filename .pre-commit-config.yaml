@@ -60,7 +60,12 @@ repos:
     rev: v0.1.7
     hooks:
       - id: gitown
-        args: ["--codeowners_filename=.github/CODEOWNERS"]
+        args:
+          [
+            "--ownership_threshold=34",
+            "--codeowners_filename=.github/CODEOWNERS",
+            "--verbose",
+          ]
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v3.16.0
     hooks:
