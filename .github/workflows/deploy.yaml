@@ -65,7 +65,9 @@ jobs:
             echo ''
             echo '=== Issue detected! ==='
             echo 'Suggest changes are listed above.'
-            echo 'Please install pre-commit and run `pre-commit run --all-files` to fix it.'
+            echo -n 'Please install pre-commit and run `pre-commit run --show-diff-on-failure '
+            echo -n "${EXTRA_ARGS[@]}"
+            echo '` to fix it.'
             echo 'Strongly recommended to run `pre-commit install` to catch issues before pushing.'
             echo 'You can learn more abour pre-commit from https://pre-commit.com/'
             exit 1
